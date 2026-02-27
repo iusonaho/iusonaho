@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let hasMoreImages = true;
 
     while (hasMoreImages) {
-        const imageUrl = `assets/${currentCategory}/${index}.jpg`;
+        const imageUrl = `assets/${currentCategory}/${index}.png`;
         
         try {
             const response = await fetch(imageUrl, { method: 'HEAD' });
