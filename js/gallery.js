@@ -13,36 +13,68 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     const formattedTitle = currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
-    pageTitle.textContent = `${formattedTitle} Drawings`;
-    header.textContent = `${formattedTitle} Drawings`;
+    pageTitle.textContent = `${formattedTitle} Artworks | Portfolio`;
+    header.textContent = `${formattedTitle} Artworks`;
 
-    let index = 1;
-    let hasMoreImages = true;
+    try {
+        const response = await fetch('data/gallery.json');
+        const imagesData = await response.json();
 
-    while (hasMoreImages) {
-        const imageUrl = `assets/${currentCategory}/${index}.png`;
-        
-        try {
-            const response = await fetch(imageUrl, { method: 'HEAD' });
-            
-            if (response.ok) {
-                const imgElement = document.createElement('img');
-                imgElement.src = imageUrl;
-                imgElement.alt = `${currentCategory} drawing ${index}`;
-                imgElement.className = 'gallery-item';
-                imgElement.loading = 'lazy';
-                
-                container.appendChild(imgElement);
-                index++;
-            } else {
-                hasMoreImages = false;
-            }
-        } catch (error) {
-            hasMoreImages = false;
+        const filteredImages = imagesData.filter(item => item.category === currentCategory);
+
+        if (filteredImages.length === 0) {
+            container.innerHTML = `<p class="no-images">No artworks found in "${currentCategory}" category (yet).</p>`;
+            return;
         }
+
+        filteredImages.forEach(image => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'gallery-item';
+            
+            const imgElement = document.createElement('img');
+            imgElement.src = image.filename;
+            imgElement.alt = `${currentCategory} artwork`;
+            imgElement.loading = 'lazy';
+            
+           
+            if (image.aspectRatio) {
+                imgElement.style.aspectRatio = image.aspectRatio;
+            }
+            
+            itemDiv.addEventListener('click', () => openLightbox(image.filename));
+
+            itemDiv.appendChild(imgElement);
+            container.appendChild(itemDiv);
+        });
+
+    } catch (error) {
+        console.error('Error loading gallery data:', error);
+        container.innerHTML = '<p class="no-images">Error loading artworks.</p>';
     }
 
-    if (index === 1) {
-        container.innerHTML = "<p>No drawings for this category (yet).</p>";
+    const modal = document.getElementById('lightboxModal');
+    const modalImg = document.getElementById('lightboxImage');
+    const closeSpan = document.getElementById('closeModal');
+
+    function openLightbox(filename) {
+        modal.classList.add('visible');
+        modalImg.src = filename;
+        document.body.style.overflow = 'hidden';
     }
+
+    function closeLightbox() {
+        modal.classList.remove('visible');
+        document.body.style.overflow = 'auto';
+        setTimeout(() => modalImg.src = '', 300); 
+    }
+
+
+    closeSpan.addEventListener('click', closeLightbox);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('visible')) closeLightbox();
+    });
 });

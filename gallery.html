@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">Loading Gallery...</title>
-    <link rel="stylesheet" href="css/gallery.css">
+    <title id="pageTitle">Gallery Loading...</title>
+    
     <script src="js/theme.js"></script>
     <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/gallery.css">
 </head>
 <body>
     <header>
         <h1 id="galleryHeader">Loading...</h1>
-        <a href="index.html" class="back-btn">Back to Home</a>
+        <a href="index.html" class="back-btn">&larr; Back to Home</a>
     </header>
 
     <main id="galleryContainer" class="gallery-grid"></main>
+
+    <div id="lightboxModal" class="lightbox-modal">
+        <span id="closeModal" class="close-modal">&times;</span>
+        <img class="lightbox-content" id="lightboxImage" alt="Full size artwork">
+    </div>
 
     <script src="js/gallery.js"></script>
 </body>

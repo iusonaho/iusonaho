@@ -1,0 +1,33 @@
+[
+    {
+        "category": "chibi",
+        "filename": "assets/chibi/1.png",
+        "aspectRatio": "1/1"
+    },
+    {
+        "category": "chibi",
+        "filename": "assets/chibi/2.png",
+        "aspectRatio": "3/4"
+    },
+    {
+        "category": "chibi",
+        "filename": "assets/chibi/3.png",
+        "aspectRatio": "3/4"
+    },
+     {
+        "category": "adopt",
+        "filename": "assets/adopt/1.png",
+        "aspectRatio": "1/1"
+    },
+    {
+        "category": "normal",
+        "filename": "assets/normal/2.png",
+        "aspectRatio": "3/4"
+    },
+    {
+        "category": "normal",
+        "filename": "assets/normal/3.png",
+        "aspectRatio": "3/4"
+    }
+
+]
