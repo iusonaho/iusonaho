@@ -1,0 +1,43 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex; justify-content: center; align-items: center; min-height: 100vh;
+    transition: background-color 0.3s ease;
+}
+
+.vending-machine-wrapper { position: relative; width: 100%; max-width: 600px; }
+.vending-machine-bg { width: 100%; height: auto; display: block; }
+.button-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+.vending-btn {
+    position: absolute;
+    background-color: var(--btn-bg);
+    color: var(--text-color);
+    border: 2px solid var(--btn-border);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.vending-btn:hover {
+    background-color: var(--btn-hover-bg);
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.btn-chibi    { top: 30%; left: 30%; }
+.btn-normal   { top: 30%; left: 70%; }
+.btn-adopt    { top: 50%; left: 30%; }
+.btn-tos      { top: 50%; left: 70%; }
+.btn-socials  { top: 70%; left: 30%; }
+.btn-waitlist { top: 70%; left: 70%; }
+
+@media (max-width: 600px) {
+    .vending-btn { font-size: 0.8rem; padding: 6px 12px; border-width: 1px; }
+}

@@ -1,0 +1,62 @@
+:root {
+    --bg-color: #fafafa;
+    --text-color: #333;
+    --card-bg: #fff;
+    --border-color: #eee;
+    --header-color: #222;
+    
+    --btn-bg: rgba(255, 255, 255, 0.8);
+    --btn-hover-bg: #ffb6c1;
+    --btn-border: #333;
+    
+    --back-btn-bg: #333;
+    --back-btn-text: #fff;
+    --back-btn-hover: #555;
+    
+    --action-link-bg: #f8f9fa;
+    --action-link-border: #eee;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --border-color: #333;
+    --header-color: #fff;
+    
+    --btn-bg: rgba(30, 30, 30, 0.8);
+    --btn-hover-bg: #b05c6f;
+    --btn-border: #e0e0e0;
+    
+    --back-btn-bg: #e0e0e0;
+    --back-btn-text: #121212;
+    --back-btn-hover: #fff;
+    
+    --action-link-bg: #2a2a2a;
+    --action-link-border: #444;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
