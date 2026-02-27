@@ -21,13 +21,18 @@
     },
     {
         "category": "normal",
+        "filename": "assets/normal/1.png",
+        "aspectRatio": "3/4"
+    },
+    {
+        "category": "normal",
         "filename": "assets/normal/2.png",
         "aspectRatio": "3/4"
     },
     {
         "category": "normal",
         "filename": "assets/normal/3.png",
-        "aspectRatio": "3/4"
+        "aspectRatio": "16/9"
     }
 
 ]
